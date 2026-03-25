@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工業計時儀 Pro - 官方下載頁</title>
+    <style>
+        body {
+            background-color: #1e272e;
+            color: #d2dae2;
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #2d3436;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 2px solid #4b6584;
+            max-width: 500px;
+        }
+        .lcd-preview {
+            background: #000;
+            color: #00d2d3;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5rem;
+            padding: 20px;
+            border-radius: 8px;
+            border: 4px ridge #d2dae2;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00d2d3;
+        }
+        h1 { color: #26de81; margin-bottom: 0.5rem; }
+        p { color: #a5b1c2; line-height: 1.6; }
+        .download-btn {
+            background-color: #26de81;
+            color: #1e272e;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            transition: transform 0.2s, background 0.2s;
+            margin-top: 20px;
+        }
+        .download-btn:hover {
+            background-color: #20bf6b;
+            transform: scale(1.05);
+        }
+        .features {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .tag { color: #f7b731; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>工業計時儀 Pro</h1>
+        <p>版本 V3.4 修正版 | 台北標準時同步</p>
+        
+        <div class="lcd-preview" id="clock">12:00:00</div>
+
+        <div class="features">
+            <div><span class="tag">✔</span> 自動校準：超規格輸入(66:66)自動修正</div>
+            <div><span class="tag">✔</span> 雙模切換：鬧鐘與高精度計時器</div>
+            <div><span class="tag">✔</span> 工業介面：沉浸式暗色系儀表設計</div>
+        </div>
+
+        <a href="工業計時儀_Pro.exe" class="download-btn" download>立即下載 .EXE</a>
+        
+        <p style="font-size: 0.7rem; margin-top: 25px;">支援環境：Windows 10/11</p>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
