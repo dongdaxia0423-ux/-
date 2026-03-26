@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北時間 (Taipei Time) - 官方下載頁面</title>
+    <style>
+        :root {
+            --primary-blue: #0078d4; /* 專業微軟藍 */
+            --hover-blue: #005a9e;
+            --bg-gray: #f3f2f1;
+            --text-main: #323130;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav {
+            background: var(--card-bg);
+            padding: 15px 10%;
+            border-bottom: 1px solid #edebe9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        /* 主視覺區 */
+        .hero {
+            padding: 60px 10%;
+            text-align: center;
+            background: white;
+        }
+
+        .app-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        h1 { margin: 10px 0; font-size: 2.5rem; }
+        .subtitle { color: #605e5c; font-size: 1.1rem; margin-bottom: 30px; }
+
+        /* 下載按鈕 */
+        .download-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background 0.2s;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .download-btn:hover {
+            background-color: var(--hover-blue);
+        }
+
+        .version-info {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #a19f9d;
+        }
+
+        /* 功能區塊 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 10%;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 2px;
+            border: 1px solid #edebe9;
+        }
+
+        .feature-item h3 { margin-top: 0; color: var(--primary-blue); font-size: 1rem; }
+        .feature-item p { font-size: 0.9rem; color: #605e5c; margin-bottom: 0; }
+
+        /* 底部資訊區 */
+        footer {
+            padding: 40px 10%;
+            background: #faf9f8;
+            border-top: 1px solid #edebe9;
+            font-size: 0.85rem;
+        }
+
+        .team-grid {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+
+        .license-text {
+            font-family: monospace;
+            background: #f3f2f1;
+            padding: 10px;
+            border-radius: 4px;
+            color: #323130;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">🕒 台北時間</a>
+        <div id="live-clock" style="font-weight: 600;"></div>
+    </nav>
+
+    <header class="hero">
+        <div class="app-icon">🕒</div>
+        <h1>台北時間</h1>
+        <p class="subtitle">整合 鬧鐘、時鐘、碼表、計時器 的工業級精密工具</p>
+        
+        <a href="台北時間.exe" class="download-btn" download>立即下載 Windows 版 (.exe)</a>
+        
+        <div class="version-info">
+            版本：v9.0 | 授權：Apache-2.0 | 環境：Windows 10/11
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="feature-item">
+            <h3>⏰ 精準鬧鐘</h3>
+            <p>支援多組排程與人性化提醒介面。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🕙 標準時鐘</h3>
+            <p>同步台北標準時間，確保秒級精確。</p>
+        </div>
+        <div class="feature-item">
+            <h3>⏱️ 專業碼表</h3>
+            <p>高精確度邏輯，適合各類計時任務。</p>
+        </div>
+        <div class="feature-item">
+            <h3>⌛ 倒數計時</h3>
+            <p>直觀的工業風格介面，操作穩定順暢。</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="team-grid">
+            <div>
+                <strong>開發團隊</strong><br>
+                作者：Aresir<br>
+                合作：DONGDAXIA、Gemini
+            </div>
+            <div>
+                <strong>授權資訊</strong><br>
+                本程式開放原始碼並採用 Apache License 2.0
+            </div>
+        </div>
+        <div class="license-text">
+            Apache License Version 2.0, January 2004
+        </div>
+    </footer>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('zh-TW', { hour12: false });
+            document.getElementById('live-clock').textContent = '台北標準時間：' + timeStr;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
